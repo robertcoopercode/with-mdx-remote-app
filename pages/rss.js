@@ -5,7 +5,8 @@ import { postFilePaths } from '../utils/mdxUtils';
 // const { serverRuntimeConfig } = getConfig();
 // const postsDirectory = join(String(serverRuntimeConfig.PROJECT_ROOT), 'posts');
 
-const Page = () => <div>RSS page</div>;
+// const Page = () => <div>RSS page</div>;
+const Page = () => null;
 
 export default Page;
 
