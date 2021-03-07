@@ -10,7 +10,7 @@ const Page = () => null;
 
 export default Page;
 
-export const getServerSideProps = (context) => {
+export const getServerSideProps = async (context) => {
   console.log(getAllPosts());
   console.log(POSTS_PATH);
   return { props: {} };
