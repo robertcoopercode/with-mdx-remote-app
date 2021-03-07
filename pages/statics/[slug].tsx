@@ -5,7 +5,7 @@ const Page = () => <div>Static page</div>;
 export default Page;
 
 export const getStaticPaths = () => {
-  postFilePaths;
+  postFilePaths();
   return {
     paths: [
       {
@@ -19,7 +19,7 @@ export const getStaticPaths = () => {
 }
 
 export const getStaticProps = () => {
-  postFilePaths;
+  postFilePaths();
 
   return {
     props: {}

@@ -11,7 +11,7 @@ const Page = () => null;
 export default Page;
 
 export const getServerSideProps = (context) => {
-  console.log(postFilePaths);
+  console.log(postFilePaths());
   console.log(POSTS_PATH);
   return { props: {} };
 }
