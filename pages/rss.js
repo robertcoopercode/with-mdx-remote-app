@@ -2,7 +2,7 @@ import fs from 'fs';
 import { join } from 'path';
 import getConfig from 'next/config';
 const { serverRuntimeConfig } = getConfig();
-const postsDirectory = join(String(serverRuntimeConfig.PROJECT_ROOT), 'content', 'posts');
+const postsDirectory = join(String(serverRuntimeConfig.PROJECT_ROOT), 'posts');
 
 const Page = () => null;
 
