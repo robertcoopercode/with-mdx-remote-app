@@ -1,11 +1,11 @@
-import { postFilePaths } from '../../utils/mdxUtils';
+import { getAllPosts } from '../../utils/mdxUtils';
 
 const Page = () => <div>Static page</div>;
 
 export default Page;
 
 export const getStaticPaths = () => {
-  postFilePaths();
+  getAllPosts();
   return {
     paths: [
       {
@@ -19,7 +19,7 @@ export const getStaticPaths = () => {
 }
 
 export const getStaticProps = () => {
-  postFilePaths();
+  getAllPosts();
 
   return {
     props: {}

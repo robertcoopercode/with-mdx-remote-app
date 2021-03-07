@@ -8,7 +8,7 @@ import Link from 'next/link'
 import path from 'path'
 import CustomLink from '../../components/CustomLink'
 import Layout from '../../components/Layout'
-import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils'
+import { getAllPosts, POSTS_PATH } from '../../utils/mdxUtils'
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -59,10 +59,10 @@ export default function PostPage({ source, frontMatter }) {
 }
 
 export const getStaticProps = async ({ params }) => {
-  const postFilePath = path.join(POSTS_PATH, `${params.slug}.mdx`)
-  const source = fs.readFileSync(postFilePath)
+  const posts = getAllPosts();
+  const post = posts.find(post => post.slug === params.slug)
 
-  const { content, data } = matter(source)
+  const { content, data } = post
 
   const mdxSource = await renderToString(content, {
     components,
@@ -83,11 +83,11 @@ export const getStaticProps = async ({ params }) => {
 }
 
 export const getStaticPaths = async () => {
-  const paths = postFilePaths()
-    // Remove file extensions for page paths
-    .map((path) => path.replace(/\.mdx?$/, ''))
+  const paths = getAllPosts()
     // Map the path into the static paths object required by Next.js
-    .map((slug) => ({ params: { slug } }))
+    .map((post) => ({ params: { slug: post.slug } }))
+
+  console.log(paths)
 
   return {
     paths,

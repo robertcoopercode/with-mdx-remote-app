@@ -1,7 +1,7 @@
 // import fs from 'fs';
 // import { join } from 'path';
 // import getConfig from 'next/config';
-import { postFilePaths, POSTS_PATH } from '../utils/mdxUtils';
+import { getAllPosts, POSTS_PATH } from '../utils/mdxUtils';
 // const { serverRuntimeConfig } = getConfig();
 // const postsDirectory = join(String(serverRuntimeConfig.PROJECT_ROOT), 'posts');
 
@@ -11,7 +11,7 @@ const Page = () => null;
 export default Page;
 
 export const getServerSideProps = (context) => {
-  console.log(postFilePaths());
+  console.log(getAllPosts());
   console.log(POSTS_PATH);
   return { props: {} };
 }
